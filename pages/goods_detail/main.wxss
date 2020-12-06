@@ -1,0 +1,87 @@
+page {
+  padding-bottom: 90rpx;
+}
+.detail_swiper swiper {
+  height: 65vw;
+  text-align: center;
+}
+.detail_swiper image {
+  width: 60%;
+}
+.goods_price{
+  padding: 15rpx;
+  color: var(--themeColor);
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.goods_wrap{
+  display: flex;
+  color: #666;
+  padding-bottom: 15rpx;
+  border-bottom: 10rpx solid #dedede;
+}
+.goods_wrap .goods_name{
+  display: -webkit-box;
+  flex: 5;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.goods_wrap .goods_collect{
+  flex: 1;
+  text-align: center;
+  border-left: 5rpx solid #ccc;
+}
+.goods_info{}
+.goods_info .goods_info_title{
+  padding: 15rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+}
+
+.btn_tool {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  border-top: 1rpx solid #ccc;
+  background: #fff;
+}
+.btn_tool .tool_item {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  font-size: 24rpx;
+  text-align: center;
+}
+.btn_tool .tool_item button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.btn_tool .btn_cart {
+  flex: 2;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #fff;
+  background: #ffa500;
+}
+.btn_tool .btn_buy {
+  flex: 2;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #fff;
+  background: #eb4450;
+}

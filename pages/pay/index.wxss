@@ -1,0 +1,96 @@
+/* 收货地址 */
+.recieve_adress {
+  padding: 20rpx;
+}
+.btn_adress_wrap {
+  
+}
+.address_info {
+  display: flex;
+  align-items: center;
+}
+.address_info .user_info {
+  flex: 5;
+}
+.address_info .user_phone {
+  flex: 3;
+  text-align: right;
+}
+
+/* 购物车列表 */
+.cart_content {}
+.cart_content .cart_title {
+  padding: 15rpx;
+  font-size: 34rpx; 
+  border-top: 1rpx solid var(--themeColor);
+  border-bottom: 1rpx solid var(--themeColor);
+}
+.cart_main {}
+.cart_main .cart_item {
+  display: flex;
+  align-items: center;
+  padding-left: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.cart_main .cart_item .cart_img {
+  flex: 2;
+}
+.cart_main .cart_item .goods_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 6;
+  padding-left: 30rpx;
+}
+.goods_content .goods_title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 20rpx;
+  color: #666;
+}
+.goods_content .goods_price_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--themeColor);
+}
+.goods_content .goods_price_wrap .goods_num {
+  padding: 0 25rpx;
+  color: #666;
+}
+
+/* 底部工具栏 */
+.footer_tool_wrap {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  height: 90rpx;
+  width: 100%;
+  background: #fff;
+}
+.footer_tool_wrap .price_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 5;
+  text-align: right;
+  padding-right: 10rpx;
+}
+.footer_tool_wrap .price_wrap .total_price {
+  color: var(--themeColor);
+  font-size: 34rpx;
+}
+.footer_tool_wrap .buy_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  height: 100%;
+  color: #fff;
+  font-size: 32rpx;
+  background: var(--themeColor);
+}

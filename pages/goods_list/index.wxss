@@ -1,0 +1,30 @@
+.goods_item { 
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 0.5rpx solid #ccc;
+}
+.goods_item .goods_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+.goods_item .goods_img image{
+  width: 70%;
+}
+.goods_item .goods_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 5;
+}
+.goods_item .goods_content .goods_title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goods_item .goods_content .goods_price {
+  color: var(--themeColor);
+  font-size: 32rpx;
+}

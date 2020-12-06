@@ -1,0 +1,81 @@
+<view class="user_info_wrap">
+  <button wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" type="primary" size="mini" plain>微信一键登录</button>
+  <block wx:else>
+    <image wx:if="!userInfo.avatarUrl" mode="widthFix" class="bg_img" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <view class="user_img">
+        <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="user_name">{{userInfo.nickName}}</view>
+    </view>
+  </block>
+</view>
+<view class="user_content">
+  <view class="user_main">
+    <view class="history_wrap">
+      <navigator url="/pages/collect/index" class="history_item">
+        <view class="history_num">0</view>
+        <view class="history_title">收藏的店铺</view>
+      </navigator>
+      <navigator url="/pages/collect/index" class="history_item">
+        <view class="history_num">0</view>
+        <view class="history_title">收藏的商品</view>
+      </navigator>
+      <navigator url="/pages/collect/index" class="history_item">
+        <view class="history_num">0</view>
+        <view class="history_title">关注的商品</view>
+      </navigator>
+      <navigator url="/pages/collect/index" class="history_item">
+        <view class="history_num">0</view>
+        <view class="history_title">我的足迹</view>
+      </navigator>
+    </view>
+    <view class="order_wrap">
+      <view class="order_title">我的订单</view>
+      <view class="order_main">
+        <navigator url="" class="order_item">
+          <view class="order_item_img">
+            <text class="iconfont icon-danju"></text>
+          </view>
+          <view class="order_item_title">全部订单</view>
+        </navigator>
+        <navigator url="" class="order_item">
+          <view class="order_item_img">
+            <text class="iconfont icon-fukuan"></text>
+          </view>
+          <view class="order_item_title">待付款</view>
+        </navigator>
+        <navigator url="" class="order_item">
+          <view class="order_item_img">
+            <text class="iconfont icon-receipt-address"></text>
+          </view>
+          <view class="order_item_title">待收货</view>
+        </navigator>
+        <navigator url="" class="order_item">
+          <view class="order_item_img">
+            <text class="iconfont icon-tuikuan"></text>
+          </view>
+          <view class="order_item_title">退货/退款</view>
+        </navigator>
+      </view>
+    </view>
+    <view class="address_wrap" bindtap="handleAddressEdit">
+      收货地址管理
+    </view>
+    <view class="other_wrap">
+      <view class="other_item">
+        <view>联系客服</view>
+        <view>400-618-4000</view>
+      </view>
+      <view class="other_item">
+        <view class="other_item_text">意见反馈</view>
+        <button open-type="feedback">1</button>
+      </view>
+      <navigator class="other_item">关于我们</navigator>
+      <view class="other_item tuijian">
+        把应用分享给其他人
+        <button open-type="share">1</button>
+      </view>
+    </view>
+  </view>
+</view>

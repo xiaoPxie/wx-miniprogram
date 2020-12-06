@@ -1,0 +1,5 @@
+<view class="search_input">
+  <navigator class="search_box" hover-class="none" url="/pages/search/index">
+    <text class="iconfont icon-search"></text>搜索
+  </navigator>
+</view>
