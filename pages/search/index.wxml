@@ -1,2 +1,13 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="search_wrap">
+  <view class="search_input">
+    <text class="iconfont icon-search"></text>
+    <input type="text" name="keyword" placeholder="关键词" bindinput="handleInput" value="{{keyword}}" focus/>
+    <view class="btn_cancel" wx:if="{{dataList.length}}" bindtap="handleCancel">取消</view>
+  </view>
+  <view class="result_panel">
+    <view class="no_data" wx:if="{{!dataList.length}}">没有数据</view>
+    <navigator class="result_item" wx:for="{{dataList}}" wx:key="goods_id" url="/pages/goods_detail/main?goods_id={{item.goods_id}}">
+      <view class="results">{{item.goods_name}}</view>
+    </navigator>
+  </view>
+</view>

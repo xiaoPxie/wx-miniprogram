@@ -1,1 +1,72 @@
-/* pages/feedback/index.wxss */
+page {
+  color: #666;
+  background: #eee;
+}
+.feedback_wrap{}
+.feedback_wrap .feedback_main {
+  padding: 10rpx;
+}
+.feedback_wrap .feedback_main .feedback_title {
+}
+.feedback_wrap .feedback_main .feedback_type {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.feedback_type .item {
+  width: 30%;
+  padding: 5rpx;
+  margin: 10rpx;
+  text-align: center;
+  background: #fff;
+}
+.feedback_main .detail_panel {}
+.feedback_main .detail_panel .detail_edit{
+  width: calc(100% - 20rpx);
+  padding: 10rpx;
+  background: #fff;
+}
+.feedback_main .detail_panel .tool_bar {
+  display: flex;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100rpx;
+  /* padding: 0 10rpx; */
+  background: #fff;
+}
+.feedback_main .detail_panel .tool_bar button {
+  width: 80rpx;
+  height: 80rpx;
+  padding: 0;
+  /* margin: 0 10rpx 10rpx 0; */
+  margin: 10rpx;
+  background: #fff;
+  color: #ccc;
+  font-size: 55rpx;
+  background: #eee;
+}
+.feedback_main .detail_panel .tool_bar image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+.feedback_main .btn_submit {
+  position: relative;
+  padding-top: 15rpx;
+}
+.feedback_main .btn_submit button {
+  position: absolute;
+  right: 0;
+  width: 160rpx;
+  padding: 15rpx 0;
+  color: #eee;
+  background: var(--themeColor);
+  border-radius: 10rpx;
+}
+.feedback_main .btn_submit button icon {
+  vertical-align: middle;
+}

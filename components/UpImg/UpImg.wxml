@@ -1,0 +1,6 @@
+<view class="up_img_wrap">
+  <image src="{{imgObj.path}}" data-picurl="{{imgObj.path}}" bindtap="previewImg"></image>
+  <view class="icon_wrap" bindtap="deleteImg" data-path="{{imgObj.path}}">
+    <icon type="clear" size="20" color="red"></icon>
+  </view>
+</view>

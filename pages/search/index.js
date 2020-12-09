@@ -1,12 +1,16 @@
-// pages/search/index.js
+
+import { request } from "../../request/request"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    dataList: [],
+    keyword: ""
   },
+  timeout: "",
 
   /**
    * 生命周期函数--监听页面加载
@@ -15,52 +19,31 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  handleInput(e) {
+    const { value } = e.detail
+    if(!value.trim()) {
+      this.setData({
+        dataList: []
+      })
+      return;
+    }
+    clearTimeout(this.timeout)
+    this.timeout = setTimeout( _ => {
+      request({
+        url: "/goods/qsearch",
+        data: {query: value},
+      }).then( res =>{
+        this.setData({
+          dataList: res.data.message
+        })
+      })
+    }, 1000)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleCancel() {
+    this.setData({
+      dataList: [],
+      keyword: ""
+    })
   }
 })

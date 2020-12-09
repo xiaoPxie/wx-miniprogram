@@ -1,6 +1,6 @@
 // pages/cart/index.js
 
-import { showModal } from "../../utils/axyncWx"
+import { showModal, showToast } from "../../utils/axyncWx"
 
 Page({
 
@@ -118,10 +118,25 @@ Page({
       })
       return ;
     }
-    // 跳转到支付计算页面
-    wx.navigateTo({
-      url: '/pages/pay/index',
-    })
+    // 检查用户登录状态
+    const userInfo = wx.getStorageSync("userInfo")
+    if(userInfo!=="" && userInfo!==null) {
+      // 跳转到支付计算页面
+      wx.navigateTo({
+        url: '/pages/pay/index',
+      })
+    } else {
+      const res = await showModal({
+        content: "请登录！",
+        confirmText: "登录"
+      })
+      if(res.confirm) {
+        wx.navigateTo({
+          url: '/pages/login/index',
+        })
+      }
+      return;
+    }
   },
 
   // 计算全选状态，总价格，购物车中选中的商品数量

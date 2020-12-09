@@ -2,6 +2,12 @@
 // 发送请求的次数，确保所有请求有返回才关闭loading界面
 let requestTimes = 0
 export const request = (params) => {
+  // 当请求接口url带 /my/ 的表示需带上 header["Authorization"] 的请求头
+  let header = {...params.header}
+  if(params.url.includes("/my/")) {
+    header["Authorization"] = wx.getStorageSync('token')
+  }
+
   requestTimes ++
   return new Promise((resolve,reject) => {
     // 接口数据基址
@@ -14,6 +20,7 @@ export const request = (params) => {
     // 发送请求
     wx.request({
       ...params,
+      header: header,
       url: baseUrl + params.url,
       success: result => {
         resolve(result)

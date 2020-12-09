@@ -1,1 +1,40 @@
-/* pages/collect/index.wxss */
+page {
+  background: #eee;
+}
+.collect_wrap {}
+.collect_wrap .no_data {
+  color: #666;
+  text-align: center;
+  padding-top: 40rpx;
+}
+.data_list {
+  background: #fff;
+}
+.data_list .data_item {
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+}
+.data_list .data_item .item_pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+.data_list .data_item .item_pic image {
+  width: 80%;
+}
+.data_list .data_item .item_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 5;
+}
+.data_list .data_item .item_content .item_title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.data_list .data_item .item_content .item_price {
+  color: var(--themeColor);
+}

@@ -1,66 +1,24 @@
 // pages/auth/index.js
+
+import { login } from "../../utils/axyncWx"
+
 Page({
+  // // 微信一键登录
+  // async handleGetUserInfo(res) {
+  //   const {userInfo } = res.detail
+  //   // 用户允许授权
+  //   if(typeof(userInfo)!="undefined") {
+  //     // 将微信用户信息存入用户中
+  //     wx.setStorageSync("userInfo", userInfo)
+  //     // 返回上一页
+  //     this.goBack()
+  //   }
+  // },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  // // 返回上一页
+  // goBack() {
+  //   wx.navigateBack({
+  //     delta: 1,
+  //   })
+  // },
 })

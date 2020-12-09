@@ -25,7 +25,7 @@
           </checkbox-group>
         </view>
         <navigator class="cart_img" url="/pages/goods_detail/main?goods_id={{item.goods_id}}">
-          <image mode="widthFix" src="{{item.goods_small_logo}}"></image>
+          <image mode="widthFix" src="{{item.pics[0].pics_sma}}"></image>
         </navigator>
         <view class="goods_content">
           <navigator class="goods_title" url="/pages/goods_detail/main?goods_id={{item.goods_id}}">{{item.goods_name}}</navigator>

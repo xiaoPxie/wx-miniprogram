@@ -1,1 +1,10 @@
-/* pages/order/index.wxss */
+.order_main .order_item {
+  padding: 15rpx;
+  color: #666;
+  border: 1rpx solid #eee;
+}
+.order_main .order_item .order_item_option {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5rpx;
+}

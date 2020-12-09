@@ -1,64 +1,61 @@
-//index.js
-//获取应用实例
-const app = getApp()
 
 import { request } from "../../request/request.js"
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
     //轮播图数组
     swiperList: [],
     //导航数组
     catesList: [],
     //
-    floorList: []
+    floorList: [],
+    // 标题栏信息
+    styles: "",
+    titleInfo: {
+      height: 0,
+      "padding-top": 0
+    }
   },
+  titleInfoCalc: {},
   
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+    const menuButtonInfo = wx.getMenuButtonBoundingClientRect()
+    const systemInfo = wx.getSystemInfoSync()
+    // 状态栏高度
+    const statusBarHeight = systemInfo.statusBarHeight
+    // 胶囊高度
+    const height = menuButtonInfo.height
+    // 导航栏高度 667-619=48
+    const navigationHeight = systemInfo.screenHeight - systemInfo.windowHeight
+    // 整个沉浸式标题栏的高度 = 导航栏高度 + 状态栏高度
+    const totalHeight = navigationHeight + statusBarHeight
+    this.titleInfoCalc = { statusBarHeight, totalHeight }
+    this.setData({ 
+      titleInfo: {
+        top: statusBarHeight * 2,
+        height: navigationHeight * 2
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-
+    })
     //
     this.getSwiperList();
     this.getCatesList();
     this.getFloorList();
   },
-  getUserInfo: function(e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+
+  // 监听滚动事件
+  onPageScroll(e) {
+    if(e.scrollTop > 120) {
+      this.setData({
+        styles: `height:${this.titleInfoCalc.totalHeight*2}rpx;background:var(--themeColor)`
+      })
+    } else {
+      this.setData({
+        styles: "height:0"
+      })
+    }
   },
+
+  // 获取轮播图数据
   getSwiperList() {
     request({
       url: '/home/swiperdata',
@@ -70,6 +67,7 @@ Page({
       }
     })
   },
+  // 获取分类栏目数据
   getCatesList() {
     request({
       url: '/home/catitems',
@@ -81,13 +79,23 @@ Page({
       }
     })
   },
+  // 获取floor数据
   getFloorList() {
     request({
       url: '/home/floordata',
     }).then(result => {
       if(result.data.meta.status === 200){
+        // 由于接口有误，这里需要做一些更改
+        let dataList = result.data.message
+        dataList.forEach((v,i) => {
+          let productList = v.product_list
+          productList.forEach((v2,i2) => {
+            const urls = v2.navigator_url.split("?")
+            v2.navigator_url = urls[0] + '/index?' + urls[1]
+          })
+        })
         this.setData({
-          floorList: result.data.message
+          floorList: dataList
         })
       }
     })

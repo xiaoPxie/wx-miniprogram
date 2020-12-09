@@ -1,5 +1,5 @@
 <view class="user_info_wrap">
-  <button wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" type="primary" size="mini" plain>微信一键登录</button>
+  <navigator url="/pages/login/index" wx:if="{{!userInfo.avatarUrl}}" class="login_btn">微信登录</navigator>
   <block wx:else>
     <image wx:if="!userInfo.avatarUrl" mode="widthFix" class="bg_img" src="{{userInfo.avatarUrl}}"></image>
     <view class="user_info">
@@ -13,19 +13,15 @@
 <view class="user_content">
   <view class="user_main">
     <view class="history_wrap">
-      <navigator url="/pages/collect/index" class="history_item">
+      <navigator url="/pages/collect/index?type=0" class="history_item">
         <view class="history_num">0</view>
         <view class="history_title">收藏的店铺</view>
       </navigator>
-      <navigator url="/pages/collect/index" class="history_item">
-        <view class="history_num">0</view>
+      <navigator url="/pages/collect/index?type=1" class="history_item">
+        <view class="history_num">{{collectNum}}</view>
         <view class="history_title">收藏的商品</view>
       </navigator>
-      <navigator url="/pages/collect/index" class="history_item">
-        <view class="history_num">0</view>
-        <view class="history_title">关注的商品</view>
-      </navigator>
-      <navigator url="/pages/collect/index" class="history_item">
+      <navigator url="/pages/collect/index?type=2" class="history_item">
         <view class="history_num">0</view>
         <view class="history_title">我的足迹</view>
       </navigator>
@@ -33,30 +29,30 @@
     <view class="order_wrap">
       <view class="order_title">我的订单</view>
       <view class="order_main">
-        <navigator url="" class="order_item">
+        <view bindtap="handleNavigate" data-url="/pages/order/index?type=1" class="order_item">
           <view class="order_item_img">
             <text class="iconfont icon-danju"></text>
           </view>
           <view class="order_item_title">全部订单</view>
-        </navigator>
-        <navigator url="" class="order_item">
+        </view>
+        <view bindtap="handleNavigate" data-url="/pages/order/index?type=2" class="order_item">
           <view class="order_item_img">
             <text class="iconfont icon-fukuan"></text>
           </view>
           <view class="order_item_title">待付款</view>
-        </navigator>
-        <navigator url="" class="order_item">
+        </view>
+        <view bindtap="handleNavigate" data-url="/pages/order/index?type=3" class="order_item">
           <view class="order_item_img">
             <text class="iconfont icon-receipt-address"></text>
           </view>
           <view class="order_item_title">待收货</view>
-        </navigator>
-        <navigator url="" class="order_item">
+        </view>
+        <view bindtap="handleNavigate" data-url="/pages/order/index?type=4" class="order_item">
           <view class="order_item_img">
             <text class="iconfont icon-tuikuan"></text>
           </view>
           <view class="order_item_title">退货/退款</view>
-        </navigator>
+        </view>
       </view>
     </view>
     <view class="address_wrap" bindtap="handleAddressEdit">
@@ -68,8 +64,11 @@
         <view>400-618-4000</view>
       </view>
       <view class="other_item">
+        <!-- 小程序自带意见反馈功能 -->
         <view class="other_item_text">意见反馈</view>
         <button open-type="feedback">1</button>
+        <!-- 另外写的意见反馈界面 -->
+        <!-- <navigator url="/pages/feedback/index" class="other_item_text">意见反馈</navigator> -->
       </view>
       <navigator class="other_item">关于我们</navigator>
       <view class="other_item tuijian">

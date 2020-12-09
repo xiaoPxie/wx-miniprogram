@@ -16,7 +16,7 @@
   <view class="cart_main">
       <view class="cart_item" wx:for="{{cart}}" wx:key="goods_id">
         <navigator class="cart_img" url="/pages/goods_detail/main?goods_id={{item.goods_id}}">
-          <image mode="widthFix" src="{{item.goods_small_logo}}"></image>
+          <image mode="widthFix" src="{{item.pics[0].pics_sma}}"></image>
         </navigator>
         <view class="goods_content">
           <navigator class="goods_title" url="/pages/goods_detail/main?goods_id={{item.goods_id}}">{{item.goods_name}}</navigator>
@@ -36,5 +36,8 @@
     <view>合计：<text class="total_price">￥{{totalPrice}}</text></view>
     <view class="extra_text">包含运费</view>
   </view>
-  <view class="buy_btn" bindtap="">支付({{totalNum}})</view>
+  <view class="buy_btn">
+    支付({{totalNum}})
+    <button open-type="getUserInfo" bindgetuserinfo="handlePay">1</button>
+  </view>
 </view>
