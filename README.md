@@ -1,7 +1,7 @@
 <h3>微信小程序商城<h3>
   接口文档：https://www.showdoc.com.cn/128719739414963 <br>
   图床文档：https://img.coolcr.cn/index/api.html <br>
-  
+  <br>
   上手练习，没有使用框架，直接用原生的wxml，wxss + 官方api编写 <br><br>
   大致功能如下：
    ```
