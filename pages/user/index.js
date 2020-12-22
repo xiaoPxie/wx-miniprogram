@@ -9,35 +9,36 @@ Page({
     collectNum: 0
   },
 
-  onLoad: function() {
-    // 从缓存中获取微信用户信息
-    const userInfo = wx.getStorageSync("userInfo");
-    this.setData({
-      userInfo
-    })
+  onLoad: function () {
+
   },
 
   onShow: function () {
-    // 从缓存中获取收藏的商品
-    const collect = wx.getStorageSync("goodsCollect") || []
+    const userInfo = wx.getStorageSync("userInfo"),
+      collect = wx.getStorageSync("goodsCollect") || []
     this.setData({
+      userInfo,
       collectNum: collect.length
     })
   },
 
   // 点击订单跳转
   handleNavigate(e) {
-    const { url } = e.currentTarget.dataset
+    const {
+      url
+    } = e.currentTarget.dataset
     // 用户是否已登录
     const token = wx.getStorageSync('token')
-    if(!token) {
+    if (!token) {
       wx.navigateTo({
         url: '/pages/login/index?reUrl=' + encodeURIComponent(url),
       })
       return;
     }
     // 跳转相应的页面
-    wx.navigateTo({url})
+    wx.navigateTo({
+      url
+    })
   },
 
   // 收货地址管理
