@@ -1,12 +1,11 @@
 
 <view class="pyg_index">
-  <!-- <SearchInput></SearchInput> -->
-  <view style="{{styles}}" class="pyg_title">
-    <!-- height:{{titleInfo.height}}rpx; -->
+  <SearchInput></SearchInput>
+  <!-- <view style="{{styles}}" class="pyg_title">
     <view style="height:{{titleInfo.height}}rpx;top:{{titleInfo.top}}rpx" class="title">
       <text>商城</text>
     </view>
-  </view>
+  </view> -->
   <view class="idx_swiper">
     <swiper autoplay circular indicator-dots interval="3000">
       <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">

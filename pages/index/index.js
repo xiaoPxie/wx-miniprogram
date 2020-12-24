@@ -19,23 +19,23 @@ Page({
   titleInfoCalc: {},
   
   onLoad: function () {
-    const menuButtonInfo = wx.getMenuButtonBoundingClientRect()
-    const systemInfo = wx.getSystemInfoSync()
-    // 状态栏高度
-    const statusBarHeight = systemInfo.statusBarHeight
-    // 胶囊高度
-    const height = menuButtonInfo.height
-    // 导航栏高度 667-619=48
-    const navigationHeight = systemInfo.screenHeight - systemInfo.windowHeight
-    // 整个沉浸式标题栏的高度 = 导航栏高度 + 状态栏高度
-    const totalHeight = navigationHeight + statusBarHeight
-    this.titleInfoCalc = { statusBarHeight, totalHeight }
-    this.setData({ 
-      titleInfo: {
-        top: statusBarHeight * 2,
-        height: navigationHeight * 2
-      }
-    })
+    // const menuButtonInfo = wx.getMenuButtonBoundingClientRect()
+    // const systemInfo = wx.getSystemInfoSync()
+    // // 状态栏高度
+    // const statusBarHeight = systemInfo.statusBarHeight
+    // // 胶囊高度
+    // const height = menuButtonInfo.height
+    // // 导航栏高度 667-619=48
+    // const navigationHeight = systemInfo.screenHeight - systemInfo.windowHeight
+    // // 整个沉浸式标题栏的高度 = 导航栏高度 + 状态栏高度
+    // const totalHeight = navigationHeight + statusBarHeight
+    // this.titleInfoCalc = { statusBarHeight, totalHeight }
+    // this.setData({ 
+    //   titleInfo: {
+    //     top: statusBarHeight * 2,
+    //     height: navigationHeight * 2
+    //   }
+    // })
     //
     this.getSwiperList();
     this.getCatesList();
